@@ -1,0 +1,66 @@
+mysql> describe Account;
++-----------+--------------+------+-----+---------+----------------+
+| Field     | Type         | Null | Key | Default | Extra          |
++-----------+--------------+------+-----+---------+----------------+
+| id        | int(11)      | NO   | PRI | NULL    | auto_increment |
+| email     | varchar(100) | YES  |     | NULL    |                |
+| password  | varchar(100) | YES  |     | NULL    |                |
+| createdAt | datetime     | YES  |     | NULL    |                |
+| updatedAt | datetime     | YES  |     | NULL    |                |
++-----------+--------------+------+-----+---------+----------------+
+
+mysql> describe Address;
++---------+-----------------------------+------+-----+---------+----------------+
+| Field   | Type                        | Null | Key | Default | Extra          |
++---------+-----------------------------+------+-----+---------+----------------+
+| id      | int(11)                     | NO   | PRI | NULL    | auto_increment |
+| entryId | int(11)                     | YES  |     | NULL    |                |
+| type    | enum('home','work','other') | YES  |     | NULL    |                |
+| line1   | varchar(100)                | YES  |     | NULL    |                |
+| line2   | varchar(100)                | YES  |     | NULL    |                |
+| city    | varchar(100)                | YES  |     | NULL    |                |
+| state   | varchar(100)                | YES  |     | NULL    |                |
+| zip     | varchar(100)                | YES  |     | NULL    |                |
+| country | varchar(100)                | YES  |     | NULL    |                |
++---------+-----------------------------+------+-----+---------+----------------+
+
+mysql> describe AddressBook;
++-----------+-------------+------+-----+---------+----------------+
+| Field     | Type        | Null | Key | Default | Extra          |
++-----------+-------------+------+-----+---------+----------------+
+| id        | int(11)     | NO   | PRI | NULL    | auto_increment |
+| accountId | int(11)     | YES  |     | NULL    |                |
+| name      | varchar(50) | YES  |     | NULL    |                |
++-----------+-------------+------+-----+---------+----------------+
+
+mysql> describe Email;
++---------+-----------------------------+------+-----+---------+----------------+
+| Field   | Type                        | Null | Key | Default | Extra          |
++---------+-----------------------------+------+-----+---------+----------------+
+| id      | int(11)                     | NO   | PRI | NULL    | auto_increment |
+| entryId | int(11)                     | YES  |     | NULL    |                |
+| type    | enum('work','home','other') | YES  |     | NULL    |                |
+| address | varchar(100)                | YES  |     | NULL    |                |
++---------+-----------------------------+------+-----+---------+----------------+
+
+mysql> describe Entry;
++---------------+-------------+------+-----+---------+----------------+
+| Field         | Type        | Null | Key | Default | Extra          |
++---------------+-------------+------+-----+---------+----------------+
+| id            | int(11)     | NO   | PRI | NULL    | auto_increment |
+| addressbookId | int(11)     | YES  |     | NULL    |                |
+| firstName     | varchar(50) | YES  |     | NULL    |                |
+| lastName      | varchar(50) | YES  |     | NULL    |                |
+| birthday      | date        | YES  |     | NULL    |                |
++---------------+-------------+------+-----+---------+----------------+
+
+mysql> describe Phone;
++-------------+---------------------------------+------+-----+---------+----------------+
+| Field       | Type                            | Null | Key | Default | Extra          |
++-------------+---------------------------------+------+-----+---------+----------------+
+| id          | int(11)                         | NO   | PRI | NULL    | auto_increment |
+| entryId     | int(11)                         | YES  |     | NULL    |                |
+| type        | enum('work','home','other')     | YES  |     | NULL    |                |
+| subtype     | enum('landline','mobile','fax') | YES  |     | NULL    |                |
+| phoneNumber | varchar(30)                     | YES  |     | NULL    |                |
++-------------+---------------------------------+------+-----+---------+----------------+
