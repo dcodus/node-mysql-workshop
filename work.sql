@@ -1,0 +1,1 @@
+SELECT Account.id as 'account_id', Account.email, AddressBook.id as 'addressbook_id', AddressBook.name, Entry.id as 'entry_id', Entry.firstName, Entry.lastName FROM Entry JOIN AddressBook on Entry.addressbookId = AddressBook.id JOIN Account on Account.id = AddressBook.accountId
